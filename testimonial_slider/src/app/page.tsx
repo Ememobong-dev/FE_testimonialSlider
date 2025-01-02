@@ -104,8 +104,8 @@ export default function Home() {
           <p className="text-xl text-center text-darkBlue">{`"${sliderContent[currentSlide].testimonial}"`}</p>
           <p className="font-bold text-darkBlue mt-4 text-center">
             {sliderContent[currentSlide].name}{" "}
-            <span className="text-grayBlue font-normal">{sliderContent[currentSlide].title}</span>
           </p>
+          <p className="text-grayBlue font-normal text-center ">{sliderContent[currentSlide].title}</p>
         </div>
 
 
