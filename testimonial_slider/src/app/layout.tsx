@@ -31,7 +31,7 @@ export default function RootLayout({
     >
     {children}
     <span className={'w-full'}>
-      <Image className={'cover mt-24 -bottom-1/2 '} src={patternCurve} alt={'pattern curve'}/>
+      <Image className={'cover mt-24 md:-bottom-1/2 '} src={patternCurve} alt={'pattern curve'}/>
     </span>
     </body>
     </html>

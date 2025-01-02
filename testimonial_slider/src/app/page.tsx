@@ -39,39 +39,78 @@ export default function Home() {
   ]
 
   return (
-    <div className="max-w-[1400px] px-14  h-screen flex items-center justify-center overflow-x-hidden ">
-      <div className={'relative flex items-center justify-center space-x-4 p-8   '}>
-        <div className="absolute top-24 left-24 z-0">
-          <Image src={patternQuotes} alt="pattern quotes" />
-        </div>
-        <div className="absolute -top-4 -right-48 z-0">
-          <Image src={patternBg} className={'w-3/4'} alt="background pattern" />
+    <div className="max-w-[1400px] md:px-14 px-8  h-screen flex items-center justify-center overflow-x-hidden ">
+        <div className={'relative hidden md:flex items-center justify-center space-x-4 p-8   '}>
+          <div className="absolute top-24 left-24 z-0">
+            <Image src={patternQuotes} alt="pattern quotes"/>
+          </div>
+          <div className="absolute -top-4 -right-48 z-0">
+            <Image src={patternBg} className={'w-3/4'} alt="background pattern"/>
+          </div>
+
+          {/* Foreground Content */}
+          <div className="relative z-10">
+            <p className="text-3xl text-darkBlue">{`"${sliderContent[currentSlide].testimonial}"`}</p>
+            <p className="font-bold text-darkBlue mt-4">
+              {sliderContent[currentSlide].name}{" "}
+              <span className="text-grayBlue font-normal">{sliderContent[currentSlide].title}</span>
+            </p>
+          </div>
+          <div className="relative z-10 w-full h-3/4  ">
+            <Image
+                src={sliderContent[currentSlide].image}
+                alt="reviewer img"
+                className="shadow-2xl rounded-lg w-full h-3/4   "
+            />
+            <div className={"flex w-28 -top-6 relative  mx-10 justify-between  bg-white items-center rounded-full p-3"}>
+              <button>
+                <Image src={prevIcon} alt={""} onClick={handlePrev}/>
+              </button>
+              <button>
+                <Image src={nextIcon} alt={""} onClick={handleNext}/>
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Foreground Content */}
-        <div className="relative z-10">
-          <p className="text-3xl text-darkBlue">{`"${sliderContent[currentSlide].testimonial}"`}</p>
-          <p className="font-bold text-darkBlue mt-4">
+      {/* MOBILE SCREEN */}
+      <div className={"flex flex-col gap-8 items-center mt-8 justify-center md:hidden"}>
+        <div className="relative z-10 h-3/4 my-10  ">
+          <div className="absolute -top-8 -right-48 z-0">
+            <Image src={patternBg} className={'w-3/4'} alt="background pattern"/>
+          </div>
+          <Image
+              src={sliderContent[currentSlide].image}
+              alt="reviewer img"
+              className="shadow-2xl relative z-10 rounded-lg w-[80%] mx-auto h-3/4   "
+          />
+          <div className={"flex justify-center items-center"}>
+            <div className={"flex w-24 -top-6 shadow-2xl relative z-10  mx-10 justify-between  bg-white items-center rounded-full p-3"}>
+              <button>
+                <Image src={prevIcon} alt={""} onClick={handlePrev}/>
+              </button>
+              <button>
+                <Image src={nextIcon} alt={""} onClick={handleNext}/>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <div className="relative z-10 mt-8  ">
+          <div className="absolute -top-10 left-24 z-0">
+            <Image src={patternQuotes} alt="pattern quotes"/>
+          </div>
+          <p className="text-xl text-center text-darkBlue">{`"${sliderContent[currentSlide].testimonial}"`}</p>
+          <p className="font-bold text-darkBlue mt-4 text-center">
             {sliderContent[currentSlide].name}{" "}
             <span className="text-grayBlue font-normal">{sliderContent[currentSlide].title}</span>
           </p>
         </div>
-        <div className="relative z-10 w-full h-3/4  ">
-          <Image
-              src={sliderContent[currentSlide].image}
-              alt="reviewer img"
-              className="shadow-2xl rounded-lg w-full h-3/4   "
-          />
-          <div className={"flex w-28 -top-6 relative  mx-10 justify-between  bg-white items-center rounded-full p-3"}>
-            <button>
-              <Image src={prevIcon} alt={""} onClick={handlePrev}/>
-            </button>
-            <button>
-              <Image src={nextIcon} alt={""} onClick={handleNext}/>
-            </button>
-          </div>
-        </div>
+
+
       </div>
+
     </div>
   );
 }
